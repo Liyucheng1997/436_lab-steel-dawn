@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>钢铁黎明 · STEEL DAWN</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <canvas id="gl"></canvas>
+  <canvas id="overlay"></canvas>
+  <div id="vignette"></div>
+
+  <div id="hud" class="hidden">
+    <div id="topbar">
+      <div class="stat" id="credits" title="资金"><i class="gem"></i><b id="creditsVal">0</b></div>
+      <div class="stat" id="power" title="电力：消耗 / 供应"><i class="bolt"></i><div class="pbar"><div id="powerFill"></div><div id="powerUse"></div></div><span id="powerTxt">0 / 0</span></div>
+      <div class="stat" id="clock">00:00</div>
+      <button class="stat" id="speedBtn" title="游戏速度：点击切换，或按 + / - 调节"><i class="ff"></i><b id="speedVal">1.5×</b></button>
+    </div>
+    <div id="toasts"></div>
+    <div id="sidebar">
+      <div id="mmwrap"><canvas id="minimap" width="236" height="236"></canvas></div>
+      <div id="tabs"></div>
+      <div id="grid"></div>
+      <div id="hint">左键选择 / 框选 · 右键移动 / 攻击<br />WASD 移动镜头 · 滚轮缩放 · Q/E 旋转<br />F 进攻移动 · X 停止 · H 回基地 · P 暂停<br />+ / - 调节游戏速度</div>
+    </div>
+    <div id="selinfo"></div>
+    <div id="tooltip"></div>
+  </div>
+
+  <div id="menu">
+    <div class="card">
+      <div class="logo"><span>STEEL DAWN</span><h1>钢铁黎明</h1><p>采集晶矿 · 建设基地 · 集结装甲洪流 · 摧毁敌方全部建筑</p></div>
+      <div class="diff">
+        <button data-diff="easy"><b>新兵</b><small>简单</small></button>
+        <button data-diff="normal" class="primary"><b>指挥官</b><small>普通</small></button>
+        <button data-diff="hard"><b>统帅</b><small>困难</small></button>
+      </div>
+      <ul class="keys">
+        <li><kbd>左键</kbd>选择 / 框选单位，双击选中同类</li>
+        <li><kbd>右键</kbd>移动、攻击、采矿、设置集结点</li>
+        <li><kbd>WASD</kbd>平移镜头，<kbd>滚轮</kbd>缩放，<kbd>Q</kbd><kbd>E</kbd>旋转</li>
+        <li><kbd>F</kbd>进攻移动　<kbd>X</kbd>停止　<kbd>Ctrl+数字</kbd>编队</li>
+        <li><kbd>+</kbd><kbd>-</kbd>调节游戏速度（1× ~ 4×），也可点左上角按钮</li>
+        <li>建筑造好后，点击图标并在己方建筑附近部署</li>
+      </ul>
+      <div id="loading">正在生成战场…</div>
+    </div>
+  </div>
+
+  <div id="pause" class="hidden"><div class="card small"><h2>已暂停</h2><p>按 <kbd>P</kbd> 或 <kbd>Esc</kbd> 继续</p><button id="resumeBtn" class="primary">继续游戏</button><button id="restartBtn">重新开始</button></div></div>
+  <div id="end" class="hidden"><div class="card small"><h2 id="endTitle"></h2><p id="endSub"></p><div id="endStats"></div><button id="againBtn" class="primary">再来一局</button></div></div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
